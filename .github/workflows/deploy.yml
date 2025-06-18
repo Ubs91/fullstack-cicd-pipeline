@@ -1,0 +1,46 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '22.13.1'
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Build client
+        run: |
+          cd client
+          npm install
+          npm run build
+      
+      - name: Build server
+        run: |
+          cd server
+          npm install
+          npm run build
+      
+      - name: Run tests
+        run: |
+          npm run test-component
+
+      - name: Deploy to Render
+        if: github.ref == 'refs/heads/main'
+        env:
+          DEPLOY_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: |
+          curl "$DEPLOY_URL"
