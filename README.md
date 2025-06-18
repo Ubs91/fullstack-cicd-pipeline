@@ -1,65 +1,65 @@
-# DeploymentChamp
+# Continuous Integration & Deployment Pipeline
 
-This project uses a CI/CD pipeline powered by **GitHub Actions** to automate testing and deployment workflows. The pipeline ensures code quality and safe deployment to production environments.
-
----
-
-## 🚀 Features
-
-- **Automated Testing** for every pull request to `develop` and `main`
-- **Production Deployment** on merges to `main`
-- **CI/CD with GitHub Actions**
-- Cypress component testing
-- Build steps for both `client` and `server` directories
+This repository implements an automated build and deployment system using **GitHub Actions** to streamline code validation and production releases. The workflow maintains code integrity while enabling seamless delivery to live environments.
 
 ---
 
-## 🧪 Testing Workflow
+## ⚡ Key Capabilities
 
-Tests are automatically run when a pull request is created or updated, targeting the `develop` or `main` branches.
-
-### ✅ Triggered on:
-- `pull_request` to `develop`
-- `pull_request` to `main`
-
-### 📋 Steps:
-1. Checkout the repository
-2. Set up Node.js
-3. Install dependencies
-4. Build client and server
-5. Run Cypress component tests
-
-> Pull requests must pass all tests before they can be merged.
+- **Continuous Integration** validates all pull requests targeting `develop` and `main` branches
+- **Automated Production Releases** execute when changes merge to `main`
+- **GitHub Actions Integration** orchestrates the entire pipeline
+- End-to-end component validation with Cypress
+- Multi-directory build processes covering both frontend and backend components
 
 ---
 
-## 🚢 Deployment Workflow
+## 🔍 Integration Workflow
 
-Deployment is triggered **only** when code is merged into the `main` branch. This ensures that only reviewed and tested code reaches production.
+Code validation occurs automatically whenever pull requests are opened or modified against protected branches.
 
-### ✅ Triggered on:
-- `push` to `main`
+### 🎯 Activation Triggers:
+- Pull requests targeting `develop` branch
+- Pull requests targeting `main` branch
 
-### 📋 Steps:
-1. Checkout the code
-2. Set up environment
-3. Install and build dependencies
-4. Deploy to the hosting provider (e.g., Vercel, Netlify, AWS)
+### 🔧 Execution Pipeline:
+1. Repository code retrieval
+2. Node.js environment configuration
+3. Package dependency installation
+4. Frontend and backend compilation
+5. Cypress component test execution
 
-> Deployment specifics depend on the platform used.
-
----
-
-## 🛠 Tech Stack
-
-- React (Client)
-- Node.js (Server)
-- Cypress (Testing)
-- GitHub Actions (CI/CD)
+> All validation checks must succeed before pull request approval is possible.
 
 ---
 
-## 📄 Example Workflow Trigger Configuration
+## 📦 Production Release Process
+
+Live deployment initiates exclusively when validated code merges into the primary branch, ensuring only vetted changes reach end users.
+
+### 🎯 Activation Triggers:
+- Direct commits to `main` branch
+
+### 🔧 Release Pipeline:
+1. Source code acquisition
+2. Runtime environment preparation
+3. Dependency resolution and compilation
+4. Production environment deployment (via platforms like Vercel, Netlify, or AWS)
+
+> Specific deployment procedures vary based on chosen hosting infrastructure.
+
+---
+
+## 🏗 Technology Foundation
+
+- React (Frontend Application)
+- Node.js (Backend Services)
+- Cypress (Quality Assurance)
+- GitHub Actions (Pipeline Orchestration)
+
+---
+
+## ⚙️ Pipeline Configuration Reference
 
 ```yaml
 on:
@@ -74,28 +74,27 @@ on:
 
 ---
 
-## 🌍 Live Application
+## 🌐 Production Environment
 
-You can view the deployed application here:
-
-🔗 Live App
+Access the live application deployment:
+🔗 Production Instance
 [DeploymentChamp](https://cdci-champion.onrender.com)
- 
+
 ---
 
-## 🤝 Contributing
+## 🤲 Collaboration Guidelines
 
-Contributions are welcome! Please ensure your code passes all tests before submitting a pull request.
+Community contributions are encouraged! Please verify all quality checks pass before submitting pull requests.
 
-⸻
+---
 
-## 📜 License
+## 📋 Legal Information
 
-This project is licensed under the MIT License.
+This codebase operates under the MIT License framework.
 
 ### MIT License
 
-Copyright (c) [2025] [Sergio Aguilar]
+Copyright (c) [2025] [Luis Ubidia]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
